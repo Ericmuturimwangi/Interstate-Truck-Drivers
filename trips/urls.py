@@ -6,5 +6,6 @@ router = DefaultRouter()
 router.register(r'trips', TripViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
+    path('api/routes/<int:route_id>/', views.get_route_details, name='get_route_details'),
 ]
