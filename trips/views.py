@@ -16,15 +16,14 @@ class TripViewSet(viewsets.ModelViewSet):
         trip.save()
 
 
-def get_route_details(request, route_id):
-    try:
-        route = Route.objects.get(id=route_id)
-        data = {
-            'pickup': route.pickup,
-            'dropoff': route.dropoff,
-            'cycle': route.cycle,
-            # Add other fields as necessary
-        }
-        return JsonResponse(data)
-    except Route.DoesNotExist:
-        return JsonResponse({'error': 'Route not found'}, status=404)
+class RouteCreateView(generics.CreateAPIView):
+    queryset = Route.objects.all()
+    serializer_class = RouteSerializer
+
+class RouteDetailView(generics.RetrieveAPIView):
+    queryset = Route.objects.all()
+    serializer_class = RouteSerializer
+
+class ELDLogCreateView(generics.CreateAPIView):
+    queryset = ELDLog.objects.all()
+    serializer_class = ELDLogSerializer
