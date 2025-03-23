@@ -8,6 +8,8 @@ class Trip(models.Model):
     current_cycle_hours = models.FloatField()
 
     created_at =models.DateTimeField(auto_now_add=True)
+    log_sheet = models.ImageField(upload_to="logs/", blank=True, null=True)
+    
 
     def __str__ (self):
         return f"Trip from {self.pickup_location} to {self.dropoff_location}"
