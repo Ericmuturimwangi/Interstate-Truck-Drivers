@@ -35,14 +35,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # apps
-    'rest_framework',
     'corsheaders',
+    'rest_framework',
     'trips',
 ]
 
 MIDDLEWARE = [
-
-    'corsheaders.middleware.CorsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -54,10 +53,12 @@ MIDDLEWARE = [
     
 
 ]
-
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALL_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-
+CORS_ALLOWED_ORIGINS = [
+    "https://interstate-frontend-eta.vercel.app",  
+]
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALL_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"]
+CORS_ALLOW_HEADERS = ["*"]
 
 ROOT_URLCONF = "trip_planner.urls"
 
@@ -131,3 +132,4 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+CSRF_TRUSTED_ORIGINS = ["https://interstate-frontend-eta.vercel.app"]

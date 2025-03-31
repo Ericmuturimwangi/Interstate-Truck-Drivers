@@ -7,6 +7,9 @@ from django.http import JsonResponse
 from rest_framework import generics
 from .models import Route, ELDLog
 from .serializers import RouteSerializer,   ELDLogSerializer, RouteSerializer
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+@method_decorator(csrf_exempt, name='dispatch')
 class TripViewSet(viewsets.ModelViewSet):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
@@ -17,15 +20,15 @@ class TripViewSet(viewsets.ModelViewSet):
         trip.log_sheet = log_path
         trip.save()
 
-
+@method_decorator(csrf_exempt, name='dispatch')
 class RouteCreateView(generics.CreateAPIView):
     queryset = Route.objects.all()
     serializer_class = RouteSerializer
-
+@method_decorator(csrf_exempt, name='dispatch')
 class RouteDetailView(generics.RetrieveAPIView):
     queryset = Route.objects.all()
     serializer_class = RouteSerializer
-
+@method_decorator(csrf_exempt, name='dispatch')
 class ELDLogCreateView(generics.CreateAPIView):
     queryset = ELDLog.objects.all()
     serializer_class = ELDLogSerializer
