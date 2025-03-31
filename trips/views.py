@@ -4,7 +4,9 @@ from rest_framework import viewsets
 from .serializers import TripSerializer
 from .utils import generate_log_sheet
 from django.http import JsonResponse
-
+from rest_framework import generics
+from .models import Route, ELDLog
+from .serializers import RouteSerializer,   ELDLogSerializer, RouteSerializer
 class TripViewSet(viewsets.ModelViewSet):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer

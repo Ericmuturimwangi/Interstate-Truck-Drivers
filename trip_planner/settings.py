@@ -53,7 +53,7 @@ MIDDLEWARE = [
 
 ]
 
-CORS_ALLOW_ALL_ORIGINS = "https://interstate-frontend-eta.vercel.app"
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = "trip_planner.urls"
 

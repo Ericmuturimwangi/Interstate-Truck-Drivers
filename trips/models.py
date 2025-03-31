@@ -13,3 +13,21 @@ class Trip(models.Model):
 
     def __str__ (self):
         return f"Trip from {self.pickup_location} to {self.dropoff_location}"
+    
+class Route(models.Model):
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    route = models.TextField()
+    distance = models.FloatField()
+    duration = models.FloatField()
+    created_at = models.DateTimeField(auto_now_add=True)    
+
+    def __str__(self):
+        return f"Route for {self.trip}"
+class ELDLog(models.Model):
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    cycle_hours = models.FloatField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"ELD Log for {self.trip}"
+    
