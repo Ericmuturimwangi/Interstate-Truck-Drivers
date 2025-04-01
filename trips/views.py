@@ -9,6 +9,7 @@ from .models import Route, ELDLog
 from .serializers import RouteSerializer,   ELDLogSerializer, RouteSerializer
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+
 @method_decorator(csrf_exempt, name='dispatch')
 class TripViewSet(viewsets.ModelViewSet):
     queryset = Trip.objects.all()
@@ -24,6 +25,7 @@ class TripViewSet(viewsets.ModelViewSet):
 class RouteCreateView(generics.CreateAPIView):
     queryset = Route.objects.all()
     serializer_class = RouteSerializer
+
 @method_decorator(csrf_exempt, name='dispatch')
 class RouteDetailView(generics.RetrieveAPIView):
     queryset = Route.objects.all()

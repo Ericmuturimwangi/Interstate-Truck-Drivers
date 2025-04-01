@@ -55,10 +55,12 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ORIGINS = [
     "https://interstate-frontend-eta.vercel.app",  
+    "http://localhost:3000"
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALL_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"]
 CORS_ALLOW_HEADERS = ["*"]
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = "trip_planner.urls"
 
