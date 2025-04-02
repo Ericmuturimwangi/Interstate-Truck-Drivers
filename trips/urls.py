@@ -8,6 +8,6 @@ router.register(r'trips', TripViewSet)
 urlpatterns = [
     path('api/', include(router.urls)),
     path('api/routes/', TripViewSet.as_view({'post':'create'}), name='create-route'),
-    path('api/routes/<int:pk>/', RouteDetailView.as_view(), name='route-detail'),
+    path('api/routes/<int:id>/', RouteDetailView.as_view(), name='route-detail'),
     path('api/eld-logs/', ELDLogCreateView.as_view(), name='create-eld-log'),
 ]

@@ -16,8 +16,8 @@ class Trip(models.Model):
 class Route(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     route = models.TextField()
-    distance = models.FloatField()
-    duration = models.FloatField()
+    distance = models.FloatField(null=True, blank=True)
+    duration = models.FloatField(null=True, blank=True) 
     created_at = models.DateTimeField(auto_now_add=True)    
 
     def __str__(self):
